@@ -1,13 +1,14 @@
+
 # Mercado libre Challenge Seg 360
 
 The challenge-seg360 solution was designed using technologies such as Docker, Hystrix and Spring Framwork, it consists of 4 micro-service applications.
 
-- #####challenge-server: Eureka server implementation
-- #####cloud-gateway: Main access point to the microservices system
-- #####challenge-seg360: Consume the free market api and persist the data consulted in a postgres database
-- #####bridge-challenge-seg-360: Intermediate layer between the gateway and the layer that manipulates the data
+- challenge-server: Eureka server implementation
+- cloud-gateway: Main access point to the microservices system
+- challenge-seg360: Consume the free market api and persist the data consulted in a postgres database
+- bridge-challenge-seg-360: Intermediate layer between the gateway and the layer that manipulates the data
 
-![Image]("images/diagram.png")
+![enter image description here](https://github.com/katmilo0309/mercadolibre-challenge/blob/master/images/diagram.png)
 
 ## Prerequisites
 
@@ -140,7 +141,7 @@ podemos ver la siguiente salida
 
 When executing the deployment of the 4 applications we can enter the eureka server address [http://localhost:8761/](http://localhost:8761/) and see that 3 instances are available.
 
-![eureka]("images/eureka.jpg")
+![enter image description here](https://github.com/katmilo0309/mercadolibre-challenge/blob/master/images/eureka.jpg)
 
 To be able to test the services individually we can enter the url's:
 - [http://localhost:8086/swagger-ui.html](http://localhost:8086/swagger-ui.html)
