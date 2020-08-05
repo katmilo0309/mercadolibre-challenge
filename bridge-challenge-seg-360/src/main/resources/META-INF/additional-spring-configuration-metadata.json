@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "callenge-seg.api.base",
+  "type": "java.lang.String",
+  "description": "Endpoint for get items service"
+}]}

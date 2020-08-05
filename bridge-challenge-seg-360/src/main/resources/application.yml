@@ -1,0 +1,19 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: bridge-challenge
+    
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://challenge-server:8761/eureka
+  instance:
+    hostname: bridge-challenge
+    
+callenge-seg:
+  api:
+    base: http://challenge-seg360:8085/api/item/

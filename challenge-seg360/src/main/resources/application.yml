@@ -1,0 +1,46 @@
+server:
+  port: 8085
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://challenge-server:8761/eureka
+  instance:
+    hostname: challenge-seg360
+
+spring:
+  application:
+    name: challenge-seg360
+  datasource:
+    url: jdbc:postgresql://postgresql-db:5432/items_db
+    username: postgres
+    password: password
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+#Rest api mercado libre
+
+mercadolibre:
+  api:
+    base: https://api.mercadolibre.com/items/
+
+#Health 
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /
+      path-mapping:
+        health: health
+hystrix:  metrics:    enabled: true
