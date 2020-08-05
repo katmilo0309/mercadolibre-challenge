@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8080
 
 spring:
   application:
@@ -10,7 +10,7 @@ spring:
         - id: bridge-challenge
           uri: lb://bridge-challenge
           predicates:
-            - Path=/catalog/**
+            - Path=/items/**
           filters:
             - name: CircuitBreaker
               args:

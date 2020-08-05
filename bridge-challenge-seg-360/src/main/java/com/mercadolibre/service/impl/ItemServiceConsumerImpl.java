@@ -20,10 +20,11 @@ public class ItemServiceConsumerImpl implements ItemServiceConsumer {
 
 	@Override
 	public ResponseEntity getItems(String id) {
+		String endpoint = base.concat(id);
 		if (id != null && id.equals("")) {
 			return new ResponseEntity<String>("Item id is required", HttpStatus.BAD_REQUEST);
 		}
-		ResponseEntity<Object> response = restTemplate.getForEntity(base + id, Object.class);
+		ResponseEntity<Object> response = restTemplate.getForEntity(endpoint, Object.class);
 		return response;
 	}
 

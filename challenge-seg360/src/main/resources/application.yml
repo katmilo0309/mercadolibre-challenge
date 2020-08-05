@@ -43,4 +43,6 @@ management:
       base-path: /
       path-mapping:
         health: health
-hystrix:  metrics:    enabled: true
+hystrix:
+  metrics:
+    enabled: true

@@ -1,7 +1,8 @@
 
 # Mercado libre Challenge Seg 360
 
-The challenge-seg360 solution was designed using technologies such as Docker, Hystrix and Spring Framwork, it consists of 4 micro-service applications.
+The challenge-seg360 solution was designed using technologies such as Docker, Hystrix and Spring Framwork, 
+it consists of 4 micro-service applications.
 
 - challenge-server: Eureka server implementation
 - cloud-gateway: Main access point to the microservices system
@@ -39,11 +40,13 @@ $ docker container run --network challenge-net --name  bridge-challenge -p 8086:
 
 $ cd ../cloud-gateway
 $ docker image build -t cloud-gateway .
-$ docker container run --network challenge-net --name  cloud-gateway -p 8084:8084 -d  cloud-gateway
+$ docker container run --network challenge-net --name  cloud-gateway -p 8080:8080 -d  cloud-gateway
 
 $ cd ../challenge-seg360
 
-# This microservice is executed with the docker-compose instruction to simultaneously launch the app and the database. It is advisable to use a separate terminal to execute docker compose, since in the terminal that is executed, the log will be visible in real time, unlike other executions.
+# This microservice is executed with the docker-compose instruction to simultaneously launch the app 
+and the database. It is advisable to use a separate terminal to execute docker compose, since in the 
+terminal that is executed, the log will be visible in real time, unlike other executions.
 $ docker-compose up --build 
 ```
 
@@ -56,7 +59,7 @@ $ docker ps
 #the output should be similar to this
 
 CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                    NAMES
-364e4c4ee309        cloud-gateway             "java -jar cloud-gat…"   2 minutes ago       Up 2 minutes        0.0.0.0:8084->8084/tcp   cloud-gateway
+364e4c4ee309        cloud-gateway             "java -jar cloud-gat…"   2 minutes ago       Up 2 minutes        0.0.0.0:8080->8080/tcp   cloud-gateway
 040bd048a165        bridge-challenge          "java -jar bridge-ch…"   8 minutes ago       Up 8 minutes        0.0.0.0:8086->8086/tcp   bridge-challenge
 7761c33681aa        challenge-server          "java -jar challenge…"   12 minutes ago      Up 12 minutes       0.0.0.0:8761->8761/tcp   challenge-server
 866bce365a61        challenge-seg360:latest   "java -jar challenge…"   19 minutes ago      Up 3 minutes        0.0.0.0:8085->8085/tcp   challenge-seg360
@@ -139,7 +142,8 @@ podemos ver la siguiente salida
 ```
 
 
-When executing the deployment of the 4 applications we can enter the eureka server address [http://localhost:8761/](http://localhost:8761/) and see that 3 instances are available.
+When executing the deployment of the 4 applications we can enter the eureka server address 
+[http://localhost:8761/](http://localhost:8761/) and see that 3 instances are available.
 
 ![enter image description here](https://github.com/katmilo0309/mercadolibre-challenge/blob/master/images/eureka.jpg)
 
@@ -152,8 +156,11 @@ used id MLU460998489  for testing
 ## Additional notes
 
 - To unsubscribe the services in docker-compose press Ctrl + C
-- Make sure that in some cases you need to run the Docker and Docker-compose Commands as administrator. (In the case of Ubuntu with sudo, for Windows it was not necessary, but it is necessary to run the terminal as Administrator)
-- If after running docker-compose up or Docker run you get the error "port is already allocated" or "The container name '/container-name' is already"run docker ps and copy the name of the container to stop, then run docker stop container_name and try again
+- Make sure that in some cases you need to run the Docker and Docker-compose Commands as administrator. 
+(In the case of Ubuntu with sudo, for Windows it was not necessary, but it is necessary to run the terminal 
+as Administrator)
+- If after running docker-compose up or Docker run you get the error "port is already allocated" or "The container 
+name '/container-name' is already"run docker ps and copy the name of the container to stop, then run docker stop container_name and try again
 
 Example
 ```sh

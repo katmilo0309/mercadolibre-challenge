@@ -1,6 +1,7 @@
 package com.mercadolibre.challenge.api.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,8 +68,8 @@ public class ItemsServiceImpl implements ItemsService {
 	private ItemDTO getDBItem(String id) {
 		Item item = null;
 		try {
-			item = this.itemRepository.findById(id).get();
-			return ObjectBuilder.build(item);
+			Optional<Item> queryResponse = this.itemRepository.findById(id);
+			return ObjectBuilder.build(queryResponse.get());
 		} catch (Exception e) {
 			return null;
 		}
